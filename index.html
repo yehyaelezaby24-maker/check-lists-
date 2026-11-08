@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>شيك ليستات العملي - تمريض نسا وتوليد</title>
+<style>
+:root{--bg:#f2f6f7;--card:#fff;--ink:#17252a;--mut:#5b6b70;--pri:#0f5560;--pri2:#dcedee;--hl:#fff1c9;--line:#d3dee0}
+@media(prefers-color-scheme:dark){:root{--bg:#10191c;--card:#18262a;--ink:#e6eef0;--mut:#9db0b5;--pri:#6cc4cf;--pri2:#1f3a40;--hl:#4a3d12;--line:#2b4046}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Segoe UI",Tahoma,system-ui,sans-serif}
+header{padding:18px 16px 8px;max-width:1000px;margin:auto}
+h1{margin:0 0 4px;font-size:1.35rem}
+header p{margin:0;color:var(--mut);font-size:.92rem}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 12px;border-bottom:1px solid var(--line);display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+nav button,.tg{font:inherit;font-size:.88rem;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 12px;border-radius:8px;cursor:pointer}
+nav button[aria-pressed=true],.tg[aria-pressed=true]{background:var(--pri);color:var(--bg);border-color:var(--pri)}
+button:focus-visible{outline:3px solid var(--pri);outline-offset:2px}
+main{max-width:1000px;margin:auto;padding:12px 12px 60px}
+.bar{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:10px 0}
+h2{margin:0;font-size:1.15rem;direction:ltr;text-align:left}
+.key{background:var(--hl);border-radius:8px;padding:8px 12px;margin:8px 0 12px;font-size:.92rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--card);border:1px solid var(--line);border-top:0}
+.row:first-of-type{border-top:1px solid var(--line);border-radius:10px 10px 0 0}
+.row:last-of-type{border-radius:0 0 10px 10px}
+.en{direction:ltr;text-align:left;padding:9px 12px;border-right:1px solid var(--line);font-size:.97rem}
+.ar{direction:rtl;text-align:right;padding:9px 12px;color:var(--mut);font-size:.93rem}
+.s1 .en{padding-left:34px}
+.h .en{font-weight:700;color:var(--pri);background:var(--pri2)}
+.h .ar{background:var(--pri2)}
+.m{color:var(--pri);font-weight:700}
+.quiz .row:not(.h) .ar{filter:blur(6px);cursor:pointer;user-select:none}
+.quiz .row .ar.on{filter:none}
+.ov,.gd{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:2px 16px;margin:12px 0;direction:rtl;text-align:right}
+.ov h3,.gd h3{margin:12px 0 2px;font-size:1.02rem;color:var(--pri)}
+.ov p,.gd p,.ov li{margin:4px 0 8px;font-size:.95rem}
+.ov ul{padding-right:20px;margin:4px 0}
+summary{cursor:pointer;font-weight:700;padding:10px 0}
+#f{direction:rtl}
+.fig{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:12px 0;text-align:center}
+.fig svg{max-width:100%;height:auto;max-height:340px}
+.fig p{margin:6px 0 2px;font-size:.88rem;color:var(--mut);direction:rtl;text-align:right}
+.fig .a{stroke:var(--pri);fill:none;stroke-width:2}
+.fig .f{fill:var(--pri2);stroke:var(--pri);stroke-width:2}
+.fig .h{fill:var(--hl);stroke:var(--ink);stroke-width:1.5}
+.fig .d{stroke:var(--mut);stroke-dasharray:4 3;fill:none}
+.fig text{fill:var(--ink);font:12px "Segoe UI",Tahoma,sans-serif}
+mark{background:var(--hl);color:inherit;padding:0 3px;border-radius:3px;font-weight:600}
+.dt{grid-column:1/-1;direction:rtl;text-align:right;background:var(--pri2);padding:9px 14px;font-size:.92rem;border-top:1px dashed var(--line)}
+.quiz .dt{filter:blur(6px);cursor:pointer;user-select:none}
+.quiz .dt.on{filter:none}
+@media(max-width:640px){.row{grid-template-columns:1fr}.en{border-right:0;border-bottom:1px dashed var(--line)}}
+.quiz .en .lb{font-weight:700;color:var(--pri);margin-bottom:2px}
+.ty{width:100%;font:inherit;font-size:.95rem;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 8px;resize:vertical;direction:ltr;text-align:left}
+.ck1{margin-top:6px}
+.ans{margin-top:8px;padding:8px 10px;border-radius:8px;font-size:.9rem;border:1px solid var(--line)}
+.ans[hidden]{display:none}
+.ans.okk{background:rgba(40,170,90,.2)}.ans.mid{background:var(--hl)}.ans.no{background:rgba(220,60,60,.2)}
+.tb2{display:flex;gap:8px;margin:8px 0;justify-content:center;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<header>
+<h1>شيك ليستات الامتحان العملي</h1>
+<p>الخطوات بالإنجليزي زي ما هي في الورقة، والشرح بالعربي جمبها. S = Satisfactory، N.S = Not Satisfactory، N.D = Not Done.</p>
+</header>
+<nav id="nav"></nav>
+<main>
+<details class="ov" open><summary>الصورة الكبيرة: إزاي الشيك ليستات دي مربوطة ببعض</summary>
+<h3>1. الفكرة العامة</h3>
+<p>الشيك ليستات الستة دي هي رحلة الست الحامل في المتابعة لحد ما تولد وتتعالج. فكّر فيها كـ3 مراحل:</p>
+<ul>
+<li><b>أثناء الحمل (Antenatal):</b> شيك ليست 2 (Abdominal Grips) بتعرف بإيدك الجنين نايم إزاي. شيك ليست 5 (Breast) بتكشف أي كتلة بدري وبتجهز الحلمة للرضاعة.</li>
+<li><b>أثناء الولادة (Labor):</b> شيك ليست 4 (Uterine Contraction) بتعرف الانقباضات حقيقية ولا كاذبة وبتتقدم قد إيه. شيك ليست 3 (Vaginal Exam) بتعرف عنق الرحم اتفتح قد إيه (dilatation) ورأس الجنين نزلت فين (station).</li>
+<li><b>بعد الولادة والعلاج:</b> شيك ليست 1 (Perineal Care) بتنضف العجان بعد الولادة وتمنع العدوى. شيك ليست 6 (Medication per Vagina) بتدي دواء مهبلي (تحميلة، جل، كريم).</li>
+</ul>
+<h3>2. الخيط اللي رابطهم</h3>
+<p>كل الإجراءات بتدور حوالين 3 حاجات: أمان الأم، أمان الجنين أو الطفل، ومنع العدوى مع احترام خصوصية الست وكرامتها. لو فهمت ده هتعرف سبب أي خطوة حتى لو نسيتها.</p>
+<h3>3. الهيكل الثابت اللي بيتكرر في كل شيك ليست وسببه</h3>
+<ul>
+<li><b>Introduce + Explain + Consent:</b> من حقها تعرف إيه اللي هيحصل وتوافق. ولما تفهم بتسترخي والفحص بيبقى أسهل.</li>
+<li><b>Privacy:</b> ستارة وباب مقفول لأن الكشف على منطقة حساسة.</li>
+<li><b>Empty bladder:</b> المثانة الممتلية بتوجع، وبتزق الرحم فبتصعّب جس البطن، وبعد الولادة بتأخر انقباض الرحم.</li>
+<li><b>Wash hands + Gloves:</b> منع نقل العدوى ليها ولك.</li>
+<li><b>Position + Drape:</b> وضع مناسب للفحص، وبتكشف بس المنطقة المطلوبة وتغطي الباقي حفاظاً على كرامتها.</li>
+<li><b>الإجراء نفسه:</b> ده الجزء الوحيد اللي بيختلف من شيك ليست للتانية.</li>
+<li><b>Comfort + Remove gloves + Wash hands:</b> بترجعها مرتاحة وبتخلص من أي تلوث.</li>
+<li><b>Record + Report:</b> اللي ماتكتبش كأنه ماحصلش. التسجيل دليل شغلك وبيوصّل المعلومة للفريق.</li>
+</ul>
+<h3>4. قواعد بتتكرر في المنطقة التناسلية</h3>
+<ul>
+<li><b>Front to back / Clean to dirty:</b> من الأنظف للأوسخ عشان بكتيريا الشرج ماتروحش للمهبل أو الخياطة.</li>
+<li><b>One swab, one stroke:</b> كل قطنة مرة واحدة وترميها.</li>
+<li><b>Right side:</b> بنقف على يمينها في فحص البطن.</li>
+<li><b>Between contractions:</b> في الولادة الفحص المهبلي بيتم بين الانقباضات مش وقتها.</li>
+</ul>
+<h3>5. الممتحن بيدوّر على إيه</h3>
+<p>الترتيب الصح، والكلمات الإنجليزي المفتاحية (المظلّلة بالأصفر في الصفحة)، وسبب الخطوة. اتعود تقول بصوت عالي اللي بتعمله وليه. الخطوة الناقصة أو الغلط = N.S، والمنسية خالص = N.D.</p>
+</details>
+<div class="bar"><h2 id="t"></h2><button class="tg" id="q" aria-pressed="false">وضع التسميع: اكتب الخطوات</button></div>
+<div class="key" id="k"></div>
+<details class="gd" id="g" open></details>
+<div id="f"></div>
+<div id="list"></div>
+</main>
+<script>
+// [النص، الشرح، نوع: 1=فرعي, 2=عنوان]
+var C=[
+{n:"1. Perineal Care",k:"clean to dirty · front to back · far → near · inside → outside · one stroke · lochia. الخطوات 17-20 = 4.5 من 10",r:[
+["1-Introduce yourself and explain procedure to woman.","ربع درجة. كل خطوة من 1 لـ16 بربع درجة"],
+["2-Screen the bed and close room door.","Privacy"],
+["3-Provide the woman with the opportunity to empty her bladder and bowels prior to the procedure.","المثانة الممتلية بتزق الرحم وبتأخر انقباضه"],
+["4-wash hands.","غسل إيد قبل ما تبدأ"],
+["5-Lower side rail and assist woman in assuming dorsal recumbent position.","نايمة على ضهرها، ركبها مثنية ورجليها متباعدة"],
+["6-Wear gloves.","قبل ما تلمس المنطقة"],
+["7-Assess the woman’s genital area for color, odor, lesions, masses, swelling, irritation, tenderness, and discharge.","بتقيّم قبل ما تنضف. احفظ الكلمات دي كلها"],
+["8-Wash hands.","زي ما هي في الورقة"],
+["9-Assemble equipment at bedside.","جهز كل حاجة جنبك"],
+["10-Raise bed to comfortable working position.","عشان ضهرك"],
+["11-Put mackintosh under the woman’s buttocks and place the bed pan.","المشمع بيحمي السرير"],
+["12-Drape the woman by placing the bath blanket in a diamond shape.","شكل معين: ركن عند الذقن، ركن عند كل رجل، وركن عند القدمين"],
+["13-Fill wash basin with warm water and antiseptic solution and place wash clothes or dressing in the basin.","مياه دافية + مطهر، والقطن/الشاش جوه الطشت"],
+["14-Ask the woman to flex her knees and spread her legs apart.","عشان تكشف العجان"],
+["15-Fold the lower corner of the bath blanket onto her abdomen.","تكشف العجان بس"],
+["16-Remove the soiled perineal pad and place it in the paper bag.","من قدام لورا، وبعيد عن وشها"],
+["17-Flush the perineal area with warm water or antiseptic solution until the area is clean in the following way:-","درجة ونص (1.5). الترتيب مهم جداً:"],
+["a) Clean the mons vineries from far area to the near area.","Mons veneris: من البعيد للقريب",1],
+["b) Clean far thigh beginning from inside to outside.","الفخذ البعيد: من جوه لبرة",1],
+["c) Clean the near thigh by the same manner.","الفخذ القريب بنفس الطريقة",1],
+["d) Clean the far labia from the level of clitoris downward to the level of anus.","الشفر البعيد: من الـ clitoris لتحت لحد الـ anus",1],
+["e) Clean the near labia by the same way.","الشفر القريب بنفس الطريقة",1],
+["f) Clean the introitus (in between the two labia) by single downward motion from top to bottom.","Introitus: ضربة واحدة بس من فوق لتحت",1],
+["18-Wash the perineum by dettole or petadine with a wash clothes or forceps and cotton balls by the same way of cleaning using the same sequence and techniques.","درجة. Dettol أو Betadine، بنفس الترتيب"],
+["19-Rinse and dray the perineal area using the same sequence and techniques.","درجة. شطف وتنشيف بنفس الترتيب"],
+["20-remove the bed pan, turn woman on bed and dry buttocks with cotton sponges..","درجة. شيل البدبان، لفها، وانشف الأرداف بقطن جاف"],
+["21-Apply clean dry perineal pad from up to down without touching the surface close to the woman.","من قدام لورا، وماتلمسش الوش اللي هيلزق في جسمها"],
+["22-Rearrange bed, clothes and make the woman comfortable.","راحتها"],
+["23-Removes gloves and wash hands.","القفازات الأول وبعدين الغسيل"],
+["24-Record and chart","نص درجة:"],
+["a) Time","الوقت",1],
+["b) Type of solution","نوع المحلول",1],
+["c) Observation on vulva & perineum, any abnormalities and response of woman.","احمرار، ورم، التئام الخياطة، ورد فعلها",1],
+["d) Color, odor, amount and consistency of lochia.","لون وريحة وكمية وقوام الـ lochia",1],
+["25-Give health teaching about self perineal care.","غيّري الـ pad كل 4 ساعات وبعد كل تبول، النضافة من قدام لورا، غسل الإيد، لبس قطن"]]},
+
+{n:"2. Abdominal Grips (Leopold)",k:"fundal level · lie · presentation · engagement · right side · rolled towel under right hip",r:[
+["1-Introduce myself and explain procedure to the mother.","تعريف وشرح"],
+["2-Take woman’s agreement to doing procedure","موافقتها"],
+["3-Keep privacy.","ستارة وباب"],
+["4-Instruct the woman to empty her bladder before examination.","راحتها ودقة الفحص"],
+["5-Assisst woman to lie in supine position with one pillow under her head and her knees slightly flexed.","ترخي عضلات البطن"],
+["6-Bare the woman’s abdomen from symphysis pubic to xiphoid.","من العانة لحد الـ xiphoid"],
+["7-Place small rolled towel under woman’s right hip.","يميل الرحم لليسار فمايضغطش على الـ vena cava (supine hypotension)"],
+["8-Stand on woman’s right and facing her.","للـ grips الأولانيين"],
+["9-Inspect the abdomen for size, shape, skin pigmentation.","كمان striae، linea nigra، ندبات، حركة الجنين"],
+["10-Palpate the abdomen","بإيد دافية:"],
+["A-Fundal level:","بيدي فكرة عن مدة الحمل",2],
+["Stand on the right side of the woman.","",1],
+["Palpate with warm hands.","",1],
+["Push the uterus centrally by the palm of the right hand.","ادفع الرحم للنص",1],
+["The ulnar border of the left hand is moved from the xiphoid cartilage downwards until the resistance of the fundus is felt.","حافة الإيد الشمال (ulnar) من الـ xiphoid لتحت لحد المقاومة",1],
+["Measure the number of fingers, which can fit between the fundus and xiphesternum, or measure the distance from the symphysis pubis to the fundus using a tap measure.","12 أسبوع عند العانة، 20 عند السرة، 36 عند الـ xiphoid",1],
+["B-Fundal grip or (1st maneuver):-","الإيدين الاتنين على الـ fundus",2],
+["Still on the right side of the woman and looking to her face.","",1],
+["The fundus of the uterus is palpated with both hands.","",1],
+["To determine which parts of the fetus lying in the fundus of the uterus (head or breech).","Head = صلب مدور. Breech = طري غير منتظم",1],
+["To determine the lie of the fetus whether longitudinal or transverse.","الـ lie",1],
+["C-The lateral or umbilical grip (2nd maneuver):-","جانبي السرة",2],
+["Remain facing the woman head.","",1],
+["Place the palms of hands on both sides of the abdomen at the level of the umbilicus.","",1],
+["Steady the uterus with hand on one side and palpate the opposite side (this is done alternately).","ثبّت بإيد وحس بالتانية، بالتبادل",1],
+["To determine the location of the fetal back & limbs (which part of the fetus occupying the side wall of the uterus.","Back = صلب أملس مستمر. Limbs = أجزاء صغيرة. منها تعرف مكان الـ FHS",1],
+["D-The paw lick grip or 1st pelvic grip (3rd maneuver):-","Pawlik",2],
+["Still standing on the woman’s right side & facing her.","",1],
+["The right hand is placed on the symphysis pubis with the thumb parallel to the right inguinal ligament and the four fingers parallel to the left ligament, the other hand is placed by the side of the uterus to feel the trunk of the fetus, and ask the woman to take a deep breath and let it out.","نفس عميق وزفير",1],
+["As she exhale approximate thumb and fingers together to feel the part of the fetus occupying the lower uterine segment.","مع الزفير قرّب الإبهام والصوابع",1],
+["This grip shows the presenting part (head or breech), its size, mobility and the degree of decent in the pelvis.","الـ presenting part وحجمه وحركته ونزوله",1],
+["E-The 2nd pelvic grip (4th maneuver):-","اقلب وشك ناحية رجليها",2],
+["Face the woman’s feet.","",1],
+["The two hands are placed on the lower part of the uterus.","",1],
+["Gently move the tips of your fingers down the sides of the abdomen towards the pelvic brim and approximated at the same time.","",1],
+["This grips helped to determine: the nature of that part occupying the lower uterine segment; whether the presenting part is floating, fixed or engaged; the position and flexion of the presenting part.","Floating / Fixed / Engaged",1],
+["11-Auscultation: Auscultate the abdomen to listen to the fetal heart sound.","Pinard أو Doppler على ضهر الجنين، دقيقة كاملة. الطبيعي 110-160"],
+["12-Drape the exposed abdomen.","غطي البطن"],
+["13-Record findings and woman’s reaction to the examination.","سجل النتائج ورد فعلها"],
+["14-Replace equipment","رجّع الأدوات"]]},
+
+{n:"3. Vaginal Examination During Labor",k:"between contractions · two lubricated fingers · front to back · cervix: dilatation, length, thickness · presenting part · ischial spines · amniotic membranes",r:[
+["1- explain procedure to the woman.","شرح"],
+["2- Instruct woman to empty her bladder before beginning examination.","مثانة فاضية"],
+["4- Assist the woman to assume the proper position. Put a rolled towel under the right hip if the woman.","الورقة مفيهاش رقم 3. الـ towel تحت الورك اليمين"],
+["5- Place a drape over the woman in diamond shape.","Drape شكل معين"],
+["6- Placing the rubber sheet beneath the woman buttocks","مشمع تحت الأرداف"],
+["7- Remove any sanitary towels or under wear.","شيل الـ pad واللبس الداخلي"],
+["8- Undertake an abdominal palpation.","قبل الفحص المهبلي"],
+["9-Wash hands and done gloves","غسيل إيد ولبس قفازات"],
+["10- Expose the area for examination","اكشف المنطقة"],
+["11- Inspect the vulva & perineum for edema, warts, previous scare and vaginal discharge.","Edema، warts، scars قديمة، discharge"],
+["12- Swab the perineum from front to back using cotton ball or gauze soaked in antiseptic solution, use each swab once and dispose of it.","قدام لورا. كل قطنة مرة واحدة وارميها"],
+["13- Lubricate the first two fingers of the examining hand.","أول إصبعين (السبابة والوسطى) باللوبريكانت"],
+["14- Ask the mother to relax her pelvic muscles by taking several deep breaths & slowly releasing the air as the examiner performs the internal examination.","نفس عميق وزفير بطيء"],
+["15- From standing position using thumb & forefinger of non-dominant hand to spread the labia.","الإيد غير المسيطرة تفتح الشفرتين"],
+["16- Wait until the woman is in between contractions before inserting your finger. Gently insert the two lubricated fingers (index and middle fingers of the right hand) and introduces there one above the other into the longitudinal slit of the introitus in downwards and backwards direction - Keep your un-inserted fingers flexed to avoid touching the woman’s clitoris or anus. Then inspect the vaginal walls.","استنى بين الانقباضات. الاتجاه: لتحت ولورا. الصوابع الباقية مثنية عشان ماتلمسش clitoris/anus"],
+["17- Palpate the cervix to locate its position. Once you find the cervix turn your fingers up and feel for its length and thickness.","الـ cervix: الطول (effacement) والسمك"],
+["18- Move your fingers slightly higher to locate the internal cervical os, Spread your fingers to estimate dilatation.","الـ internal os، وفتح الصوابع يقدّر الـ dilatation"],
+["19- Use your non-dominant hand to gently but firmly press on the uterus.","ضغط خفيف وثابت على الرحم من فوق"],
+["20- Feel the presenting part of the fetus. Gently push on it to determine if it is ballotable. Feel for the ischial spines in the woman’s pelvis.","Ballotable = لسه عالي. الـ ischial spines بتحدد station"],
+["21- Check the amniotic membrane status.","سليمة ولا ممزقة"],
+["22-After obtaining the require information withdraw the fingers from the vagina.","اسحب الصوابع بعد ما تخلص"],
+["23-Washing the vulva with antiseptic solution & put on clean pad after care.","نضف وحط pad نضيف"],
+["24-Explain the finding to the woman.","اشرحلها النتيجة"],
+["25- Return the equipment and remove the gloves","رجّع الأدوات واشلع القفازات"],
+["26- Wash hands","غسيل إيد"],
+["27- Record & report the information.","سجل وبلغ"]]},
+
+{n:"4. Palpation of Uterine Contraction",k:"fundus · intensity (mild/moderate/strong) · duration (seconds) · interval (minutes) · relaxation · number in 10 minutes",r:[
+["1-Review the mother’s admission history to determine the onset, frequency, duration, and intensity of contractions.","بتراجع الملف الأول"],
+["2-Introduce yourself and explain the procedure.","تعريف وشرح"],
+["3-Gain informed consent","موافقتها"],
+["4-Prepare equipment & take to bedside.","جهز الأدوات (ساعة بعقرب ثواني)"],
+["5-Keep privacy.","ستارة"],
+["6-Wash hands and keep it warm","غسيل إيد ودفّيها"],
+["7-put the woman in a comfortable position,","وضع مريح"],
+["8-Drape the woman and expose her abdomen only.","اكشف البطن بس"],
+["9-Locate the fundus and place the hands gently on it.","الإيد بخفة على الـ fundus"],
+["10-Assess the intensity of contractions.","Mild / moderate / strong"],
+["11-Assess the duration of contractions.","بالثواني: من بداية الانقباض لنهايته"],
+["12-Assess the relaxation time.","مدة الراحة بين الانقباضات"],
+["15-Observe any irregularity or abnormality of contractions.","الورقة مفيهاش 13 و14. لاحظ أي عدم انتظام"],
+["16-Determine how the woman copes with discomfort by assessing her breathing and relaxation techniques.","تنفسها وتقنيات الاسترخاء"],
+["17-Discuss the findings with the woman","ناقش النتايج معاها"],
+["18-Drape the exposed abdomen","غطي البطن"],
+["19-Record the following:","سجل:"],
+["a-Number of contraction in 10 minutes.","عدد الانقباضات في 10 دقايق",1],
+["b-Duration of contractions by seconds.","المدة بالثواني",1],
+["c-Interval of contractions by minutes.","الفاصل بالدقايق",1],
+["d-Periods of relaxation by minutes.","الراحة بالدقايق",1],
+["e-Intensity of contraction as mild, moderate and strong.","الشدة",1],
+["f-Possible woman’s tolerance.","تحملها",1],
+["20-Remove & screen equipment","شيل الأدوات"]]},
+
+{n:"5. Breast Examination",k:"inspection (size, symmetry, skin, nipples) · arms raised · spiral technique · 4 quarters · axillary nodes · record. كل خطوة نص درجة",r:[
+["1-Explain procedure to the woman, listen to her and respond to her questions and concerns.","1/2 درجة لكل خطوة (المجموع 10)"],
+["2-Discuss advantages of regular breast self-examination.","اشرح فايدة الفحص الذاتي المنتظم"],
+["3-Ask client to empty bladder prior to procedure for comfort.","راحتها"],
+["4-Close windows and Keep privacy of the client to undress.","اقفل الشبابيك وخصوصية"],
+["5-Inspect breast for size and symmetry. Note position of nipple in relation to underlying intercostal space observe area of chest over which breast extends.","حجم وتماثل، ومكان الـ nipple"],
+["6-Observe contour or shape of breast, noting any masses, retracting of tissue or flattening. If retraction of tissue suspected ask woman to raise arms above head or press hands against her hips.","لو شكيت في retraction: ترفع دراعاتها أو تضغط إيديها على وركها"],
+["7-Inspect overlying skin for color and venous pattern.","لون الجلد والأوردة"],
+["8-Look at the nipples and note size, shape and direction in which they point. Check for rashes or sores and nipple discharge.","حجم وشكل واتجاه، طفح، جروح، إفراز"],
+["9-Repeat inspection in sitting position with arms raised over the head.","كرر الفحص قاعدة والدراعين فوق الراس"],
+["10-Examine the clavicular and axillary regions through palpation the tail of the breast and check for enlarged lymph nodes, tenderness, discoloration, swelling or lesions.","Tail of Spence والغدد الليمفاوية"],
+["11-Ask the client to assume the supine position and put her right arm over her head and inspect & palpate the right breast using the spiral technique. Note any lumps or tenderness.","نايمة، الدراع اليمين فوق الراس، spiral technique"],
+["12-Repeat with the left breast and note any differences from the right breast.","قارن الشمال باليمين"],
+["13-Make imaginary division of breast into 4 quarters.","4 أرباع"],
+["14-Palpate the breast tissue starting from outer edge of the upper quadrant at 12 O’clock wise use circular manner toward the nipple.","من الساعة 12 مع عقارب الساعة ناحية الحلمة"],
+["15-Use the palms of the hand","بكف الإيد"],
+["16-If the breast is pendulous, examine it between two hands.","لو متدلي افحصه بين الإيدين"],
+["17-If a lymph node is palpable; note its consistency, mobility, and presence of tenderness.","قوام وحركة وألم"],
+["18-If a mass is found palpate for following characteristics: location in relation to quadrant size in centimeters; shape (e.g.) round or discoid; consistency (soft, firm or hard); tenderness; mobility.","Location، size بالسم، shape، consistency، tenderness، mobility"],
+["19-Inspect and palpate the areolae and nipples. Gently spread the areola and squeeze the nipple between fingers to demonstrate the presence of cracks, fissures and secretion.","شقوق وتشققات وإفراز"],
+["20-Record normal and abnormal findings and date","سجل الطبيعي وغير الطبيعي والتاريخ"]]},
+
+{n:"6. Administering Medication per Vagina",k:"water-soluble lubricant · posterior wall 3-4 inches · applicator 2-3 inches toward sacrum · front to back · remain on back 10 min",r:[
+["1- Introduce yourself to the mother and explain the procedure.","تعريف وشرح"],
+["2- Ask the mother if she has ever had the procedure before","1/4"],
+["3- Check the physician’s order for the name of the drug to be given and the time of administration","اسم الدواء والميعاد. 1/4"],
+["4- ask mother to void","تفرغ المثانة. 1/4"],
+["5- arrange the supplies near the client’s bed","1/4"],
+["6- Keep privacy","1/2"],
+["7- Help the client to assume a dorsal-recumbent position.","1/4"],
+["8- Drape the mother’s abdomen and lower extremities.","1/2"],
+["9- Adjust the lighting.","1/2"],
+["10- Done examination gloves","1/4"],
+["11- Clean the Perineal area and vaginal orifice with cotton balls and antiseptic solution to remove discharge.","1/2"],
+["12-administering the medication","حسب النوع:"],
+["A- FOR SUPPOSITORY","تحميلة",2],
+["a- Remove the suppository from the foil. Place the suppository in an applicator","1/4",1],
+["b- Apply a water-soluble lubricant to the suppository","1/4",1],
+["c- gently retract the woman’s labia with your non dominant hand","1/4",1],
+["d- with your dominant hand, insert the tapered end of the suppository with your index finger or the applicator along the posterior wall of the woman’s vagina( about 3-4 inches)","الطرف المدبب، الجدار الخلفي، 3-4 بوصة",1],
+["B- FOR FOAM JELLY AND CREAM","رغوة / جل / كريم",2],
+["A- Fill the applicator with medication","",1],
+["b- With your nondominant hand gently retract the mother’s labia","1/4",1],
+["c- Insert the applicator plunger, gently in a rolling manner, 2 to 3 inches into the client’s vagina toward the client’s sacral area.","2-3 بوصة ناحية الـ sacrum",1],
+["d- Push the plunger to expel the medication","1/4",1],
+["e- Withdraw the applicator and place it on a paper towel.","1/4",1],
+["13- Wipe the client’s perineal area and labia from front to back with toilet tissue","قدام لورا. 1/2"],
+["14- Apply a perineal pad","1/2"],
+["15- Remove your gloves inside out and discard them into a waste receptacle","1/4"],
+["16- Instruct the mother to remain on her back for at least 10 minutes.","عشان الدواء يتوزع ومايسيحش. 1/2"],
+["17- Wash the applicator with soap and warm water, dry it thoroughly, and store it for future use.","1/2"],
+["18- Inspect the mother’s outer perineal area for signs of irritation or unexpected discharge.","1/2"],
+["19- Ask the client about pruritus, burning, or discomfort.","حكة، حرقان، ضيق. 1/2"],
+["20- Record the procedure. Note the color, odor, and consistency of the discharge and the client’s response to the procedure.","1/4. المجموع 10"]]}
+];
+
+var KW=[
+["empty her bladder and bowels","dorsal recumbent","diamond shape","mackintosh","far area to the near area","inside to outside","single downward motion","same sequence","up to down","lochia","introitus","dettole or petadine","gloves","assess"],
+["supine","rolled towel","right hip","symphysis","xiphoid","fundal","fundus","breech","longitudinal","transverse","fetal back","limbs","deep breath","floating","fixed","engaged","presenting part","woman’s feet","warm hands","fetal heart sound","lie"],
+["between contractions","two lubricated fingers","downwards and backwards","front to back","each swab once","dilatation","length and thickness","ballotable","ischial spines","amniotic membrane","flexed","non-dominant","diamond shape","rolled towel"],
+["fundus","intensity","duration","relaxation","irregularity","abdomen only","informed consent","mild","moderate","strong","interval","10 minutes","seconds"],
+["size and symmetry","retraction","arms above head","spiral technique","4 quarters","clavicular and axillary","lymph nodes","12 O’clock","pendulous","consistency","mobility","areolae","secretion","supine position"],
+["physician’s order","void","dorsal-recumbent","water-soluble lubricant","posterior wall","3-4 inches","2 to 3 inches","sacral","front to back","10 minutes","inside out","perineal pad","applicator","pruritus"]
+];
+var G=[
+"<h3>الهدف</h3><p>تنضيف منطقة العجان بعد الولادة. المنطقة بتنزل منها lochia ودم وغالباً فيها خياطة (episiotomy)، فلو اتلوثت بتعمل عدوى وتبطّأ الالتئام.</p><h3>إزاي تحفظ الترتيب</h3><p>(1-4) تحضير وتعريف وغسيل إيد. (5-8) وضع وقفازات وتقييم المنطقة. (9-15) تجهيز الأدوات والـ drape. (16) شيل الـ pad الوسخ. (17-19) التنضيف على 3 مراحل بنفس الترتيب: flush بميّة، wash بمطهر، rinse وdry. (20) تنشيف الأرداف. (21) pad جديد. (22-25) إنهاء وتسجيل وتعليم.</p><h3>الدرجات</h3><p>الخطوات 17 و18 و19 و20 هما 4.5 درجة من 10، فاحفظ الترتيب بتاعهم كويس: far ثم near، inside ثم outside، والـ introitus حركة واحدة.</p><h3>أخطاء شائعة</h3><p>استخدام نفس القطنة مرتين، الرجوع بالقطنة من تحت لفوق، ولمس الوش اللي هيلزق من الـ pad.</p>",
+"<h3>الهدف</h3><p>إنك تعرف وضع الجنين بإيدك من غير أجهزة. كل grip بيجاوب على سؤال:</p><p><b>Fundal level:</b> الحمل كام أسبوع؟ <b>1st grip:</b> إيه اللي في أعلى الرحم، راس ولا مقعدة؟ <b>2nd grip:</b> الضهر فين؟ <b>3rd grip (Pawlik):</b> إيه اللي عند مدخل الحوض؟ <b>4th grip:</b> الجزء ده نزل الحوض ولا لسه؟</p><h3>الوقفة</h3><p>أول 3 grips: على يمينها ووشك لوشها. الرابعة بس: وشك ناحية رجليها. ده سؤال ممتحن مشهور.</p><h3>أخطاء شائعة</h3><p>إيد باردة، نسيان الفوطة تحت الورك اليمين، ونسيان إنها تفرغ المثانة قبل الفحص.</p>",
+"<h3>الهدف</h3><p>تعرف الولادة بتتقدم قد إيه. بنقيّم 3 حاجات: عنق الرحم (الطول effacement والفتح dilatation)، الجزء المتقدم ونزوله (station)، وحالة الأغشية.</p><h3>إزاي تحفظ الترتيب</h3><p>(1-10) تحضير ووضع ودرابيه. (11-12) فحص ونضافة الفرج. (13-16) lubricate ثم relax ثم افتح الشفرتين ثم أدخل. (17-18) cervix. (19-20) presenting part. (21) membranes. (22-27) سحب وتنظيف وتسجيل.</p><h3>نقطة أمان مهمة</h3><p>ماتعملش فحص مهبلي لو في نزيف مهبلي إلا بأمر الدكتور، لأن ممكن يكون placenta previa والفحص يزوّد النزيف. وقلل عدد مرات الفحص عشان العدوى.</p>",
+"<h3>الهدف</h3><p>تعرف الانقباضات حقيقية ولا كاذبة وبتتقدم إزاي. الحقيقية بتبقى منتظمة وبتزيد في الشدة والمدة وبتقل الفترة بينها.</p><h3>إزاي بتتم</h3><p>بتحط كف إيدك على الـ fundus وبتبص على ساعة بعقرب ثواني لمدة 10 دقايق. وبتطلع منها 4 أرقام: عدد الانقباضات، مدتها بالثواني، الفاصل بينها بالدقايق، وشدتها (mild أو moderate أو strong). وكمان بتلاحظ إزاي الست بتتحمل وبتتنفس.</p><h3>تنبيه</h3><p>الورقة مفيهاش خطوتين 13 و14، فبعد 12 بتكمل على 15.</p>",
+"<h3>الهدف</h3><p>الكشف المبكر عن أي كتلة أو تغيير في الثدي، وتحضير الحلمة للرضاعة، وتعليم الست الفحص الذاتي.</p><h3>إزاي تحفظ الترتيب</h3><p>(1-4) تحضير وتعليم. (5-9) inspection: الأول والدراعين لتحت، وبعدين الدراعين فوق الراس. (10) الإبط والترقوة. (11-13) palpation نايمة بـ spiral technique وقارن الشمال باليمين. (14-18) مسح الأرباع الأربعة والتفاصيل. (19) الحلمة والـ areola. (20) تسجيل.</p><h3>أخطاء شائعة</h3><p>نسيان مقارنة الثديين، استخدام أطراف الصوابع بدل الكف، ونسيان فحص الإبط.</p>",
+"<h3>الهدف</h3><p>إعطاء دواء داخل المهبل بشكل آمن ونضيف، سواء تحميلة (suppository) أو جل أو كريم أو رغوة.</p><h3>إزاي تحفظ الترتيب</h3><p>(1-5) تعريف وراجع الأمر الطبي وجهز. (6-9) خصوصية ووضع ودراب وإضاءة. (10-11) قفازات وتنضيف. (12) إعطاء الدواء: التحميلة (دهان + إدخال على الجدار الخلفي) أو الـ applicator (تعبئة + دفع). (13-15) مسح وpad وشيل القفازات. (16) تفضل نايمة 10 دقايق. (17-20) غسيل الـ applicator وملاحظة وتسجيل.</p><h3>الفرق بين النوعين</h3><p>التحميلة بتتدخل بصباعك أو applicator 3-4 بوصة. الرغوة والجل والكريم بتتدخل بالـ applicator 2-3 بوصة وتدفع الـ plunger.</p>"
+];
+var D={
+"0-16":"أهم خطوة (1.5 درجة). التنضيف بقاعدة: من الأنظف للأوسخ، ومن البعيد للقريب، ومن جوه لبرة. السبب إن الشرج مليان بكتيريا، ولو رجعت بالقطنة لفوق هتنقل العدوى للمهبل والخياطة.",
+"0-22":"الـ introitus هو فتحة المهبل بين الشفرتين. بتمسحه بحركة واحدة من فوق لتحت وبقطنة واحدة وترميها، لأن لو رجعت بنفس القطنة هتنقل الأوساخ لمنطقة نضيفة.",
+"0-23":"نفس الـ sequence بتاع الخطوة 17 بس بمطهر (Dettol أو Betadine) وبقطن وforceps. الميّة لوحدها بتشيل الأوساخ، والمطهر هو اللي بيقتل البكتيريا.",
+"0-26":"الـ pad بيتحط من قدام لورا، وماتلمسش الوش اللي هيلزق على جسمها بإيدك عشان يفضل نضيف. لازم يبقى جاف لأن الرطوبة بتساعد البكتيريا تتكاثر.",
+"0-29":"Lochia: Rubra أحمر أول 3-4 أيام، Serosa وردي أو بني من 4 لـ10 أيام، Alba أبيض مصفر لحد 2-6 أسابيع. ريحة وحشة أو لون أخضر أو كمية كبيرة = علامة عدوى أو نزيف، بلّغ.",
+"1-6":"فوطة صغيرة مطوية تحت الورك اليمين عشان يميل الرحم لشمال شوية. الرحم الكبير لما تنام على ضهرها بيضغط على الوريد الأجوف السفلي فتحس بدوخة وهبوط ضغط (supine hypotension).",
+"1-10":"الجس بإيد دافية لأن البرودة بتشد عضلات البطن. بالترتيب: Fundal level ثم الـ4 grips، وكل grip بيجاوب على سؤال.",
+"1-16":"السؤال: إيه اللي في أعلى الرحم؟ الراس: صلب مدور وبيتحرك لوحده (ballotable). المقعدة (breech): أطرى وأكبر وشكلها مش منتظم. لو الـ fundus فاضي يبقى الجنين transverse.",
+"1-21":"السؤال: الضهر فين؟ ثبّت الرحم بإيد وحس الجنب التاني بالإيد التانية. الضهر: سطح صلب أملس مستمر. الأطراف: نتوءات صغيرة بتتحرك. ومن مكان الضهر بتعرف تسمع الـ FHS.",
+"1-26":"السؤال: إيه اللي عند مدخل الحوض؟ الإيد اليمين على العانة بتمسك الجزء، والتانية على جنب الرحم. نفس عميق وزفير بيرخي البطن فتحس أحسن. بتعرف الـ presenting part وحجمه وحركته.",
+"1-31":"الوحيدة اللي بتبص فيها لرجليها. إيديك على جانبي أسفل البطن وبتنزل بأطراف صوابعك ناحية الحوض. لو الصوابع اتقابلت فالراس لسه عالية (floating)، ولو اتباعدت فالراس نزلت (engaged).",
+"1-36":"الـ FHS بتتسمع أحسن حاجة على ضهر الجنين. بتحط Pinard أو Doppler وبتعد دقيقة كاملة. الطبيعي 110-160 في الدقيقة. أقل أو أكتر من كده بلّغ.",
+"2-10":"بتنضف من قدام لورا وبقطنة جديدة لكل مسحة. ده بيمنع بكتيريا الشرج توصل للمهبل وعنق الرحم وتعمل عدوى (chorioamnionitis) خصوصاً لو الميّة نزلت.",
+"2-14":"استنى بين الانقباضات لأن العنق بيتشد وقت الانقباض والفحص بيوجع وبتقرا غلط. الإصبعين واحد فوق التاني، لتحت ولورا (ده اتجاه المهبل)، والصوابع التانية مثنية.",
+"2-15":"العنق زي حلقة. بتحس بطوله (effacement: بيقصر ويتمسح لحد 100%) وسمكه. كل ما بقى أرق وأقصر كانت الولادة أقرب.",
+"2-16":"الـ dilatation بتتقاس بالسنتي من 0 لـ10. 10 سم = full dilatation يعني جاهزة للدفع. بتفتح صوابعك جوه فتحة العنق وتقدّر القطر.",
+"2-18":"Ballotable يعني الراس لسه عالية وبتتحرك. الـ ischial spines نقطة في الحوض، ومنها بتحدد الـ station: يعني الراس نزلت قد إيه بالنسبة لها.",
+"2-19":"لو الكيس سليم بتحس بغشاء مشدود بيتحرك مع الانقباض. لو اتقطع بتحس جلد راس الجنين مباشرة، وبتلاحظ لون السائل: الطبيعي رايق، والأخضر معناه meconium.",
+"3-9":"بتضغط بأطراف صوابعك على الـ fundus. Mild: الرحم بيتغمس بسهولة وملمسه زي طرف الأنف. Moderate: زي الدقن. Strong: صلب زي الجبهة وما يتغمسش.",
+"3-10":"المدة بالثواني من أول ما الرحم يبدأ يتشد لحد ما يرتخي. Mild أقل من 30 ثانية، moderate من 30 لـ60، strong أكتر من 60. لازم ساعة بعقرب ثواني.",
+"3-16":"الـ interval: من بداية انقباض لبداية اللي بعده بالدقايق. الـ relaxation: فترة ارتخاء الرحم بينهم. وعدد الانقباضات بيتعد في 10 دقايق مش في دقيقة عشان الدقة.",
+"4-4":"بتبص على حجم الثديين وتماثلهم ومكان الحلمة. شوية اختلاف طبيعي، لكن اختلاف واضح أو حلمة مشدودة لجوه ممكن تكون علامة.",
+"4-10":"الـ spiral technique: تبدأ من الحلمة وتلف لبرة في دواير بتكبر لحد ما تغطي الثدي كله. بتستخدم الصوابع مفرودة وبتحس بأي كتلة أو ألم.",
+"4-13":"بتقسم الثدي 4 أرباع (upper outer وupper inner وlower outer وlower inner). الـ upper outer أكتر مكان بيظهر فيه أورام لأن فيه نسيج أكتر، فخد بالك منه.",
+"4-17":"لو لقيت كتلة بتوصفها: مكانها (أنهي quadrant)، حجمها بالسنتي، شكلها (round أو discoid)، قوامها (soft أو firm أو hard)، فيها ألم ولا لا، وبتتحرك ولا ثابتة. الصلبة الثابتة غير المؤلمة أخطر وتتحول للدكتور.",
+"5-2":"قبل أي دواء اتأكد من الأمر الطبي: اسم الدواء والجرعة والطريقة والميعاد والست الصح. لو الأمر مش واضح ماتديش الدواء وراجع الدكتور.",
+"5-16":"التحميلة بتتدخل بطرفها المدبب بعد ما تدهنها بلوبريكانت بيدوب في الميّة. بتدخل على الجدار الخلفي (posterior wall) لأن المهبل بيميل لتحت ولورا ناحية العصعص، حوالي 3-4 بوصة عشان تثبت.",
+"5-20":"الـ applicator بيتدخل 2-3 بوصة بحركة دورانية ناحية الـ sacral area (لتحت ولورا). بعدين تدفع الـ plunger عشان الدواء يطلع، وتسحب الـ applicator وتحطه على فوطة ورق نضيفة.",
+"5-26":"تفضل نايمة على ضهرها 10 دقايق على الأقل عشان الدواء يدوب ويتوزع وماينزلش بره. الـ pad بيحمي هدومها من أي تسريب."
+};
+function hl(s){var w=KW[cur].slice().sort(function(a,b){return b.length-a.length}).join('|');return e(s).replace(new RegExp('('+w+')','gi'),'<mark>$1</mark>')}
+var IMG=[
+[[`<svg viewBox="0 0 360 285"><defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--pri)"/></marker></defs><text x="180" y="16" text-anchor="middle">Mons veneris (فوق)</text><ellipse class="f" cx="180" cy="130" rx="75" ry="100"/><circle class="h" cx="180" cy="60" r="6"/><text x="194" y="64">clitoris</text><path class="a" d="M148 75V190" marker-end="url(#ar)"/><text x="134" y="140" text-anchor="end">1</text><path class="a" d="M212 75V190" marker-end="url(#ar)"/><text x="226" y="140">2</text><path class="a" d="M180 100V165" marker-end="url(#ar)" stroke-width="3"/><text x="188" y="135">3</text><circle class="h" cx="180" cy="215" r="7"/><text x="180" y="242" text-anchor="middle">Anus (تحت، آخر حاجة)</text><text x="180" y="268" text-anchor="middle">1 الشفر البعيد | 2 الشفر القريب | 3 introitus</text></svg>`,"ترتيب التنضيف: mons الأول من البعيد للقريب، وبعدين الفخذ البعيد ثم القريب من جوه لبرة. بعد كده الشفر البعيد (1) ثم القريب (2) من الـ clitoris لتحت، وآخر حاجة الـ introitus (3) بحركة واحدة. كل مسحة بقطنة جديدة، وكل حاجة من فوق لتحت."]],
+[[`<svg viewBox="0 0 400 260"><ellipse class="f" cx="110" cy="130" rx="70" ry="110"/><path class="d" d="M30 30H190M30 125H190M30 225H190"/><text x="200" y="34">Xiphoid = 36 أسبوع</text><text x="200" y="54">40 أسبوع: تنزل شوية (lightening)</text><text x="200" y="129">السرة = 20 أسبوع</text><text x="200" y="229">العانة symphysis = 12 أسبوع</text></svg>`,"ارتفاع الـ fundus بيقولك الحمل كام أسبوع: من العانة (12) للسرة (20) للـ xiphoid (36)."],
+[`<svg viewBox="0 0 440 150"><circle class="f" cx="55" cy="55" r="38"/><circle class="f" cx="165" cy="55" r="38"/><circle class="f" cx="275" cy="55" r="38"/><circle class="f" cx="385" cy="55" r="38"/><ellipse class="h" cx="45" cy="28" rx="12" ry="7"/><ellipse class="h" cx="65" cy="28" rx="12" ry="7"/><ellipse class="h" cx="130" cy="55" rx="7" ry="14"/><ellipse class="h" cx="200" cy="55" rx="7" ry="14"/><ellipse class="h" cx="275" cy="86" rx="16" ry="7"/><ellipse class="h" cx="370" cy="84" rx="7" ry="12"/><ellipse class="h" cx="400" cy="84" rx="7" ry="12"/><text x="55" y="112" text-anchor="middle">1 Fundal</text><text x="165" y="112" text-anchor="middle">2 Lateral</text><text x="275" y="112" text-anchor="middle">3 Pawlik</text><text x="385" y="112" text-anchor="middle">4 Pelvic</text><text x="385" y="132" text-anchor="middle">وشك لرجليها</text></svg>`,"الدواير هي البطن (الراس فوق) والبيضاوي الأصفر مكان الإيدين. أول 3 grips وشك لوشها، والرابعة بس وشك لرجليها."]],
+[[`<svg viewBox="0 0 420 140"><circle class="f" cx="50" cy="60" r="4"/><circle class="f" cx="140" cy="60" r="20"/><circle class="f" cx="240" cy="60" r="35"/><circle class="f" cx="350" cy="60" r="50"/><text x="50" y="130" text-anchor="middle">0 سم</text><text x="140" y="130" text-anchor="middle">4 سم</text><text x="240" y="130" text-anchor="middle">7 سم</text><text x="350" y="130" text-anchor="middle">10 سم = full</text></svg>`,"فتحة عنق الرحم (dilatation) من 0 لـ10 سم. لما توصل 10 تبقى جاهزة للدفع."],
+[`<svg viewBox="0 0 360 190"><path class="a" d="M120 10V180"/><path class="d" d="M105 20H135M105 45H135M105 70H135M105 95H135M105 120H135M105 145H135M105 170H135"/><text x="142" y="24">-3</text><text x="142" y="49">-2</text><text x="142" y="74">-1</text><text x="142" y="99" font-weight="700">0 = ischial spines</text><text x="142" y="124">+1</text><text x="142" y="149">+2</text><text x="142" y="174">+3</text><circle class="f" cx="60" cy="122" r="22"/><text x="60" y="162" text-anchor="middle">راس الجنين</text><text x="250" y="45">سالب = فوق الـ spines</text><text x="250" y="150">موجب = تحت الـ spines</text></svg>`,"الـ station: الراس نزلت قد إيه بالنسبة للـ ischial spines. الصفر يعني في نفس المستوى، وكل ما الرقم زاد موجب الراس قربت تخرج."]],
+[[`<svg viewBox="0 0 430 225"><defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--pri)"/></marker></defs><path class="d" d="M20 150H415"/><path class="a" d="M40 150C70 150 75 45 110 45C145 45 150 150 180 150"/><path class="a" d="M250 150C280 150 285 45 320 45C355 45 360 150 390 150"/><text x="110" y="34" text-anchor="middle">Intensity = أعلى نقطة</text><path class="a" d="M180 132H250" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="215" y="124" text-anchor="middle">Relaxation</text><path class="a" d="M40 162H180" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="110" y="177" text-anchor="middle">Duration (ثواني)</text><path class="a" d="M40 190H250" marker-start="url(#ar)" marker-end="url(#ar)"/><text x="145" y="206" text-anchor="middle">Interval (من بداية لبداية بالدقايق)</text></svg>`,"المدة (duration) من أول الانقباض لآخره. الفاصل (interval) من بداية انقباض لبداية اللي بعده. والـ relaxation الراحة بينهم. عدّهم في 10 دقايق."]],
+[[`<svg viewBox="0 0 300 270"><circle class="f" cx="150" cy="140" r="90"/><path class="d" d="M55 140H245M150 45V235"/><circle class="d" cx="150" cy="140" r="22"/><circle class="h" cx="150" cy="140" r="7"/><path class="a" d="M95 85L40 40"/><text x="10" y="30">Axillary tail</text><text x="150" y="38" text-anchor="middle">12</text><text x="100" y="100" text-anchor="middle">علوي خارجي</text><text x="200" y="100" text-anchor="middle">علوي داخلي</text><text x="100" y="195" text-anchor="middle">سفلي خارجي</text><text x="200" y="195" text-anchor="middle">سفلي داخلي</text><text x="150" y="176" text-anchor="middle">Nipple</text><text x="150" y="258" text-anchor="middle">الثدي الأيمن (من قدام)</text></svg>`,"الـ 4 أرباع. ابدأ من الساعة 12 في الربع العلوي الخارجي وامشي مع عقارب الساعة ناحية الحلمة. الـ upper outer فيه الـ axillary tail فخد بالك منه."]],
+[[`<svg viewBox="0 0 430 225"><defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--pri)"/></marker></defs><path class="d" d="M10 190H420"/><text x="415" y="210" text-anchor="end">السرير</text><path class="a" d="M150 190C160 160 180 155 205 165"/><text x="150" y="212">Sacrum</text><path d="M340 95L215 150" stroke="var(--pri2)" stroke-width="22" stroke-linecap="round" fill="none"/><path class="a" d="M340 95L225 146" marker-end="url(#ar)"/><circle class="h" cx="345" cy="93" r="7"/><text x="345" y="72" text-anchor="middle">فتحة المهبل</text><text x="20" y="40">التحميلة: 3-4 inches (جدار خلفي)</text><text x="20" y="60">الـ applicator: 2-3 inches</text><text x="20" y="100">الاتجاه: لتحت ولورا ناحية الـ sacrum</text></svg>`,"رسم مبسط لوضع الست نايمة على ضهرها: الدواء بيدخل في اتجاه الـ sacrum (لورا ولتحت ناحية السرير) مش لفوق ناحية البطن، لأن ده اتجاه قناة المهبل."]]
+];
+var cur=0,quiz=false,nav=document.getElementById('nav'),L=document.getElementById('list'),Q=document.getElementById('q');
+C.forEach(function(c,i){var b=document.createElement('button');b.textContent=c.n.split('.')[0];b.title=c.n;b.onclick=function(){cur=i;show()};nav.appendChild(b)});
+function e(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function show(){
+var c=C[cur];
+document.getElementById('t').textContent=c.n;
+document.getElementById('k').textContent='الكلمات المفتاحية: '+c.k;document.getElementById('g').innerHTML='<summary>شرح الشيك ليست بالتفصيل</summary>'+G[cur];document.getElementById('f').innerHTML=(IMG[cur]||[]).map(function(x){return '<div class="fig">'+x[0]+'<p>'+x[1]+'</p></div>'}).join('');
+L.className=quiz?'quiz':'';
+L.innerHTML=(quiz?TB:'')+c.r.map(function(r,i){var d=D[cur+'-'+i];return '<div class="row'+(r[2]==1?' s1':'')+(r[2]==2?' h':'')+'"><div class="en">'+(quiz&&r[2]!=2?typer(r,i):hl(r[0]))+'</div><div class="ar">'+hl(r[1])+'</div>'+(d?'<div class="dt">'+hl(d)+'</div>':'')+'</div>'}).join('');
+Array.prototype.forEach.call(nav.children,function(b,i){b.setAttribute('aria-pressed',i==cur)});
+scrollTo(0,0)}
+var A={};
+var TB='<div class="tb2"><button class="tg" data-a="all">تحقق من الكل</button><button class="tg" data-a="clr">امسح الإجابات</button></div>';
+function nrm(s){return s.toLowerCase().replace(/^\s*(\d+|[a-z])\s*[-.)]\s*/,'').replace(/[^a-z0-9\u0600-\u06ff\s]/g,' ').split(/\s+/).filter(Boolean)}
+function typer(r,i){var lb=(r[0].match(/^\s*(\d+|[a-z])\s*[-.)]/i)||['•'])[0];return '<div class="lb">'+e(lb)+'</div><textarea class="ty" dir="ltr" rows="2" data-k="'+i+'" placeholder="اكتب الخطوة بالإنجليزي..." aria-label="اكتب الخطوة">'+e(A[cur+'-'+i]||'')+'</textarea><button class="tg ck1" data-i="'+i+'">تحقق</button><div class="ans" hidden></div>'}
+function grade(i){var r=C[cur].r[i],ta=L.querySelector('textarea[data-k="'+i+'"]'),a=nrm(r[0]),t=nrm(ta.value),box=ta.closest('.en').querySelector('.ans'),ok=0;a.forEach(function(w){if(t.indexOf(w)>-1)ok++});var p=a.length?ok/a.length:0;box.hidden=false;box.className='ans '+(p>=.8?'okk':p>=.5?'mid':'no');box.innerHTML='<b>'+(p>=.8?'✅ ممتاز':p>=.5?'🟡 قريب':'❌ راجع')+' ('+Math.round(p*100)+'%)</b><div dir="ltr">'+hl(r[0])+'</div>'}
+L.onclick=function(ev){var b=ev.target.closest('.ck1');if(b){grade(+b.dataset.i);return}var t=ev.target.closest('.tb2 button');if(t){if(t.dataset.a=='all'){C[cur].r.forEach(function(r,i){if(r[2]!=2)grade(i)})}else{C[cur].r.forEach(function(r,i){delete A[cur+'-'+i]});show()}return}var a=ev.target.closest('.ar,.dt');if(a)a.classList.toggle('on')};
+L.oninput=function(ev){var t=ev.target;if(t.classList.contains('ty'))A[cur+'-'+t.dataset.k]=t.value};
+Q.onclick=function(){quiz=!quiz;Q.setAttribute('aria-pressed',quiz);Q.textContent=quiz?'وضع التسميع: شغال (اكتب كل خطوة واضغط تحقق)':'وضع التسميع: اكتب الخطوات';show()};
+show();
+</script>
+</body>
+</html>
